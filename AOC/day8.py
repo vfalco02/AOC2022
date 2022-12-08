@@ -51,13 +51,12 @@ def part2():
     for i in range(1, len(rows[1:])):
         for j in range(1, len(rows[i])-1):
             tree = rows[i][j]
-            right, left, up, down = (
-                count_view(tree, rows[i][j+1:]),
-                count_view(tree, reversed(rows[i][:j])),
-                count_view(tree, reversed(cols[j][:i])),
+            score = (
+                count_view(tree, rows[i][j+1:]) *
+                count_view(tree, reversed(rows[i][:j])) *
+                count_view(tree, reversed(cols[j][:i])) *
                 count_view(tree, cols[j][i+1:])
             )
-            score = right*left*up*down
             scores.append(score)
     print(max(scores))
 
