@@ -115,8 +115,6 @@ def part2():
     for directions in input_.splitlines():
         direction = directions[0]
         steps = directions[2:]
-        if directions == "L 2":
-            print("yes")
         for step in range(int(steps)):
             methods[direction]()
             for knot in knots:
